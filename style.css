@@ -1,35 +1,180 @@
 /* intuitivnější box-sizing pro všechny prvky na stránce */
-html { box-sizing: border-box; }
-*, ::before, ::after { box-sizing: inherit; }
-
-
-/*
-	Poznámky:
-	- maximální šířka obsahu uvnitř sekcí je 1100px
-	- "pruh" s obsahem obsah je vycentrovaný na stránce
-	- všechny sekce mají nahoře a dole padding 80px
-	- kromě hlavičky a patičky, které mají jen 30px
-	- nadpisy jsou fontem Playfair Display, tučně
-	- veškerý další text na stránce fontem Lora
-	- výchozí velikost textu na stránce je 18px, řádkování 1.5
-
-	Velikosti nadpisů:
-	h1 - 52px  (nadpis v horní Hero sekci s cupcakem)
-	h2 - 36px  (nadpisy v dalších sekcích)
-	h3 - 18px  (název produktu v Dnešní nabídce)
-	Nadpisy mají řádkování jen 1.25
-
-	Barvy:
-	#f195b2		růžová - tlačítka a zvýraznění
-	#d2567d		tmavá růžová - hover/aktivní tlačítka
-	#3e606b		tmavá tyrkysová - na nadpisy
-	#242424		(skoro) černá - na běžný text
-	#f0f0f0		světle šedé pozadí prostřední sekce
-	#303339		tmavé pozadí patičky
-*/
-
-
-body {
-	margin: 0;
+html {
+  box-sizing: border-box;
+}
+*,
+::before,
+::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
+:root {
+  --btn-pink-soft: #f195b2; /*růžová - tlačítka a zvýraznění*/
+  --btn-pink-dark: #d2567d; /*tmavá růžová - hover/aktivní tlačítka*/
+  --text-black-dark: #242424; /*	(skoro) černá - na běžný text*/
+  --bg-gray-soft: #f0f0f0; /*světle šedé pozadí prostřední sekce*/
+  --footer-dark: #303339; /*tmavé pozadí patičky*/
+}
+
+/*** for ALL SECTIONS*/
+body {
+  font-size: 18px;
+  line-height: 1.5;
+  font-family: 'Lora', serif;
+}
+
+.section__container {
+  max-width: 1100px;
+  padding: 80px 0;
+  margin: 0 auto;
+}
+
+.headings {
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.25;
+  font-size: 36px;
+  color: #3e606b;
+  margin-bottom: 30px;
+}
+
+/* ********** HEADER **************/
+.header-container {
+  display: flex;
+  max-width: 1100px;
+  margin: 30px auto;
+  justify-content: space-between;
+}
+
+.header-container--logo {
+  width: 170px;
+}
+
+.header-container--menu ul {
+  display: flex;
+  list-style: none;
+}
+
+.header-container--menu ul li a {
+  text-decoration: none;
+  color: var(--text-black-dark);
+  padding: 10px 15px;
+}
+
+.header-container--menu ul li a:hover {
+  background-color: var(--btn-pink-soft);
+  color: #fff;
+  border-radius: 20px;
+}
+
+/* ********** HERO SECTION **************/
+.section-hero {
+  background-image: url(images/cupcake.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+}
+
+.hero--padding {
+  padding-right: 40%;
+}
+
+.hero__heading {
+  font-size: 52px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.hero__text {
+  font-size: 24px;
+  font-style: italic;
+}
+
+/* ********** Vítejte v naší cukrárně **************/
+.welcome-container {
+  display: flex;
+  align-items: center;
+}
+
+.welcome__text {
+  padding-right: 30px;
+}
+
+.welcome__text p {
+  margin-bottom: 25px;
+}
+
+.welcome__btn {
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--btn-pink-soft);
+  padding: 15px 40px;
+  border-radius: 30px;
+  display: inline-block;
+
+  transition: all 0.5s;
+}
+
+.welcome__btn:hover {
+  background-color: var(--btn-pink-dark);
+  transition: all 0.5s;
+}
+
+/* ********** Dnešní nabídka **************/
+.offer-background {
+  background-color: var(--bg-gray-soft);
+}
+
+.offer__intro {
+  margin-bottom: 20px;
+}
+.offer-container {
+  display: flex;
+}
+
+.offer-container__item {
+  flex-basis: 250px;
+  border-radius: 5px 5px 0 0;
+  margin: 0 15px;
+}
+
+.offer-container__item img {
+  width: 250px; /*  JAK TUHLE SEKCI UPRAVIT? */
+}
+
+.offer-container__item__text {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 0 0 5px 5px;
+  text-align: center;
+}
+
+.offer-container__item__text h3 {
+  font-size: 18px;
+  margin: 10px;
+}
+
+/* ********** Náš přístup k pečení **************/
+.baking__container {
+  display: flex;
+  align-items: center;
+}
+
+.baking__item--text {
+  margin-left: 30px;
+}
+
+.baking__item--text p {
+  margin-bottom: 25px;
+}
+
+/* ********** FOOTER **************/
+footer {
+  background-color: var(--footer-dark);
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+}
